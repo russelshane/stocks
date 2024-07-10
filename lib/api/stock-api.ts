@@ -33,17 +33,32 @@ export const fetchStockDetails = async (stockSymbol: string) => {
  * Fetches historical data of a stock (to be displayed on a chart)
  */
 export const fetchHistoricalData = async (
-  stockSymbol: string,
-  from: any,
-  to: any
+  stockSymbol1: string,
+  stockSymbol2: string,
+  stockSymbol3: string,
+  stockSymbol4: string,
+  stockSymbol5: string
 ) => {
-  const url = `https://api.polygon.io/v2/aggs/ticker/${stockSymbol}/range/1/day/${from}/${to}?apiKey=kD6VcAdhdtXsHdKq25L40K5_6LseQqDn`;
-  const response = await fetch(url);
+  const fetch1 = `https://api.polygon.io/v2/aggs/ticker/${stockSymbol1}/range/1/day/2023-06-06/2024-06-06?apiKey=kD6VcAdhdtXsHdKq25L40K5_6LseQqDn`;
+  const response1 = await fetch(fetch1);
 
-  if (!response.ok) {
-    const message = `An error has occured: ${response.status}`;
-    throw new Error(message);
-  }
+  const fetch2 = `https://api.polygon.io/v2/aggs/ticker/${stockSymbol2}/range/1/day/2023-06-06/2024-06-06?apiKey=kD6VcAdhdtXsHdKq25L40K5_6LseQqDn`;
+  const response2 = await fetch(fetch2);
 
-  return await response.json();
+  const fetch3 = `https://api.polygon.io/v2/aggs/ticker/${stockSymbol3}/range/1/day/2023-06-06/2024-06-06?apiKey=kD6VcAdhdtXsHdKq25L40K5_6LseQqDn`;
+  const response3 = await fetch(fetch3);
+
+  const fetch4 = `https://api.polygon.io/v2/aggs/ticker/${stockSymbol4}/range/1/day/2023-06-06/2024-06-06?apiKey=kD6VcAdhdtXsHdKq25L40K5_6LseQqDn`;
+  const response4 = await fetch(fetch4);
+
+  const fetch5 = `https://api.polygon.io/v2/aggs/ticker/${stockSymbol5}/range/1/day/2023-06-06/2024-06-06?apiKey=kD6VcAdhdtXsHdKq25L40K5_6LseQqDn`;
+  const response5 = await fetch(fetch5);
+
+  return {
+    stock1: await response1.json(),
+    stock2: await response2.json(),
+    stock3: await response3.json(),
+    stock4: await response4.json(),
+    stock5: await response5.json(),
+  };
 };
